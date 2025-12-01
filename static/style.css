@@ -1,0 +1,133 @@
+/* Estilo general inspirado en VS Code Dark Theme */
+body {
+    background-color: #1e1e1e; /* fondo oscuro */
+    color: #d4d4d4;           /* texto claro */
+    font-family: Consolas, "Courier New", monospace;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Encabezados */
+h1 {
+    color: #569cd6; /* azul VS Code */
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+/* Formularios */
+form {
+    background-color: #252526;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: 1px solid #3c3c3c;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+legend {
+    color: #9cdcfe; /* celeste VS Code */
+    font-weight: bold;
+}
+
+/* Inputs y selects */
+input[type="text"],
+input[type="number"] {
+    background-color: #1e1e1e;
+    border: 1px solid #3c3c3c;
+    color: #d4d4d4;
+    padding: 8px;
+    margin: 5px 10px 5px 0;
+    border-radius: 4px;
+    width: 200px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 5px #007acc;
+}
+
+select {
+    background-color: #1e1e1e;
+    border: 1px solid #3c3c3c;
+    color: #d4d4d4;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    width: 210px;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+select option {
+    background-color: #252526;
+    color: #d4d4d4;
+}
+
+/* Botones */
+button {
+    background-color: #0e639c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #1177bb;
+}
+
+/* Tablas */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #252526;
+    margin-bottom: 20px;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #3c3c3c;
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #2d2d2d;
+}
+
+.data-table tr:hover {
+    background-color: #3c3c3c;
+}
+
+/* Diferenciación por sección */
+.ingresos h2, .ingresos th {
+    color: #dcdcaa; /* amarillo VS Code */
+}
+
+.salidas h2, .salidas th {
+    color: #569cd6; /* azul VS Code */
+}
+
+.stock h2, .stock th {
+    color: #4ec9b0; /* verde azulado VS Code */
+}
+
+/* Etiquetas informativas */
+.info-label {
+    font-size: 0.9em;
+    color: #9cdcfe; /* celeste VS Code */
+    margin: 5px 0 10px 0;
+}
