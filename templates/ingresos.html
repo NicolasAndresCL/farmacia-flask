@@ -40,6 +40,10 @@
                 <td>{{ i.tipo }}</td>
                 <td>{{ i.fecha }}</td>
             </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">No hay ingresos registrados</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>

@@ -13,11 +13,15 @@
             </tr>
         </thead>
         <tbody>
-            {% for nombre, datos in stock.items() %}
+            {% for item in stock %}
             <tr>
-                <td>{{ nombre }}</td>
-                <td>{{ datos.cantidad }}</td>
-                <td>{{ datos.ultima_actualizacion }}</td>
+                <td>{{ item.medicamento }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.ultima_actualizacion }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">No hay medicamentos en stock</td>
             </tr>
             {% endfor %}
         </tbody>

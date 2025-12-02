@@ -53,7 +53,7 @@
             <tr>
                 <td>
                     <ul>
-                        {% for m in registro.meds %}
+                        {% for m in registro.medicamentos %}
                             <li>{{ m.nombre }} ({{ m.cantidad }})</li>
                         {% endfor %}
                     </ul>
@@ -62,6 +62,10 @@
                 <td>{{ registro.paciente }}</td>
                 <td>{{ registro.modulo }}</td>
                 <td>{{ registro.fecha }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">No hay salidas registradas</td>
             </tr>
             {% endfor %}
         </tbody>
