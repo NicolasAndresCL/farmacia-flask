@@ -131,3 +131,42 @@ button:hover {
     color: #9cdcfe; /* celeste VS Code */
     margin: 5px 0 10px 0;
 }
+.home-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.nav-button {
+    background-color: #0e639c;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #1177bb;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+nav li a {
+    color: #9cdcfe;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav li a:hover {
+    background-color: #3c3c3c;
+}

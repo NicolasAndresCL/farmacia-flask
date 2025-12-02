@@ -42,12 +42,6 @@ env\Scripts\activate      # Windows
 ### 3. Instalar dependencias
 ```bash
 pip install -r requirements.txt
-(Si aún no tienes requirements.txt, puedes generarlo con:)
-```
-
-### 4. Ejecutar la aplicación
-```bash
-pip freeze > requirements.txt
 ```
 
 ### 4. Ejecutar la aplicación

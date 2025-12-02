@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Inicio - Sistema de Medicamentos{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <h2>Bienvenido al Sistema de Gestión de Medicamentos</h2>
+    <p class="info-label">Selecciona una sección para comenzar:</p>
+
+    <div class="home-buttons">
+        <a href="{{ url_for('ingresos.index_ingresos') }}" class="nav-button">Ingresos</a>
+        <a href="{{ url_for('salidas.index_salidas') }}" class="nav-button">Salidas</a>
+        <a href="{{ url_for('stock.index_stock') }}" class="nav-button">Stock</a>
+    </div>
+</section>
+{% endblock %}

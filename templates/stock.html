@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Stock Actual{% endblock %}
+
+{% block content %}
+<section class="form-section stock">
+    <h2>Stock Actual</h2>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Medicamento</th>
+                <th>Cantidad</th>
+                <th>Última actualización</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for nombre, datos in stock.items() %}
+            <tr>
+                <td>{{ nombre }}</td>
+                <td>{{ datos.cantidad }}</td>
+                <td>{{ datos.ultima_actualizacion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

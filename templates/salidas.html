@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Salidas de Medicamentos{% endblock %}
+
+{% block content %}
+<section class="form-section salidas">
+    <h2>Salida de Medicamentos</h2>
+    <form action="{{ url_for('salidas.agregar_salida') }}" method="post" class="form-grid">
+        <fieldset>
+            <legend>Nueva Salida</legend>
+            {% for i in range(1,6) %}
+                <input type="text" name="medicamento{{ i }}" 
+                       placeholder="Medicamento {{ i }}{% if i > 1 %} (opcional){% endif %}" 
+                       {% if i == 1 %}required{% endif %}>
+                <input type="number" name="cantidad{{ i }}" 
+                       placeholder="Cantidad {{ i }}{% if i > 1 %} (opcional){% endif %}" 
+                       {% if i == 1 %}required{% endif %}>
+            {% endfor %}
+
+            <select name="responsable" required>
+                <option value="" disabled selected>Seleccione responsable</option>
+                {% for r in responsables %}
+                    <option value="{{ r }}">{{ r }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="text" name="paciente" placeholder="Paciente" required>
+
+            <select name="modulo" required>
+                <option value="" disabled selected>Seleccione módulo</option>
+                {% for m in modulos %}
+                    <option value="{{ m }}">{{ m }}</option>
+                {% endfor %}
+            </select>
+
+            <p class="info-label">La fecha y hora actual se registrarán automáticamente</p>
+            <button type="submit">Registrar Salida</button>
+        </fieldset>
+    </form>
+
+    <h3>Historial de Salidas</h3>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Medicamentos</th>
+                <th>Responsable</th>
+                <th>Paciente</th>
+                <th>Módulo</th>
+                <th>Fecha y Hora</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in salidas %}
+            <tr>
+                <td>
+                    <ul>
+                        {% for m in registro.meds %}
+                            <li>{{ m.nombre }} ({{ m.cantidad }})</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>{{ registro.responsable }}</td>
+                <td>{{ registro.paciente }}</td>
+                <td>{{ registro.modulo }}</td>
+                <td>{{ registro.fecha }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}
