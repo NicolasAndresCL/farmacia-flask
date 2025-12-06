@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from datetime import datetime
 from models import db, Stock   # 🔥 Importar modelo desde models.py
 
@@ -6,9 +6,17 @@ stock_bp = Blueprint("stock", __name__, url_prefix="/stock")
 
 @stock_bp.route("/")
 def index_stock():
+    """Vista principal del stock con opción de ordenamiento."""
+    orden = request.args.get("orden", "desc")  # 'asc' o 'desc'
+
     # 🔥 Consultar todos los registros de stock en la base
-    stock_items = Stock.query.all()
-    return render_template("stock.html", stock=stock_items)
+    if orden == "asc":
+        stock_items = Stock.query.order_by(Stock.cantidad.asc()).all()
+    else:
+        stock_items = Stock.query.order_by(Stock.cantidad.desc()).all()
+
+    return render_template("stock.html", stock=stock_items, orden=orden)
+
 
 def actualizar_stock(nombre, cantidad, operacion="ingreso"):
     """Actualiza el stock en la base de datos según ingreso o salida."""
@@ -26,9 +34,7 @@ def actualizar_stock(nombre, cantidad, operacion="ingreso"):
     if operacion == "ingreso":
         stock_item.cantidad += cantidad
     elif operacion == "salida":
-        stock_item.cantidad -= cantidad
-        if stock_item.cantidad < 0:
-            stock_item.cantidad = 0
+        stock_item.cantidad = max(stock_item.cantidad - cantidad, 0)
 
     # Actualizar fecha
     stock_item.ultima_actualizacion = ahora

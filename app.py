@@ -42,6 +42,8 @@ db.init_app(app)
 def home():
     return render_template("home.html")
 
+
+
 app.register_blueprint(ingresos_bp)
 app.register_blueprint(salidas_bp)
 app.register_blueprint(stock_bp)

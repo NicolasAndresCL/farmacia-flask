@@ -13,20 +13,20 @@
             <!-- Medicamentos (1 a 5) -->
             {% for i in range(1,6) %}
             <div class="row g-3 mb-2">
-                <div class="col-md-6 col-lg-5">
+                <div class="col-md-8 col-lg-5">
                     <input
                         type="text"
                         name="medicamento{{ i }}"
-                        class="form-control bg-secondary text-light border-0"
+                        class="form-control input-medicamento bg-secondary text-light border-0"
                         placeholder="Medicamento {{ i }}{% if i > 1 %} (opcional){% endif %}"
                         {% if i == 1 %}required{% endif %}
                     >
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-4 col-lg-4">
                     <input
                         type="number"
                         name="cantidad{{ i }}"
-                        class="form-control bg-secondary text-light border-0"
+                        class="form-control input-cantidad bg-secondary text-light border-0"
                         placeholder="Cantidad {{ i }}{% if i > 1 %} (opcional){% endif %}"
                         min="1"
                         {% if i == 1 %}required{% endif %}
@@ -38,7 +38,7 @@
             <!-- Responsable, Paciente, Módulo -->
             <div class="row g-3 mt-4">
                 <div class="col-md-4">
-                    <select name="responsable" class="form-select bg-secondary text-light border-0" required>
+                    <select name="responsable" class="form-select imput-responsable bg-secondary text-light border-0" required>
                         <option value="" disabled selected>Seleccione responsable</option>
                         {% for r in responsables %}
                             <option value="{{ r }}">{{ r }}</option>
@@ -46,11 +46,11 @@
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="paciente" class="form-control bg-secondary text-light border-0" placeholder="Paciente" required>
+                    <input type="text" name="paciente" class="form-control input-paciente bg-secondary text-light border-0" placeholder="Paciente" required>
                 </div>
                 <div class="col-md-4">
-                    <select name="modulo" class="form-select bg-secondary text-light border-0" required>
-                        <option value="" disabled selected>Seleccione módulo</option>
+                    <select name="modulo" class="form-select input-modulo bg-secondary text-light border-0" required>
+                        <option value="" disabled selected>Módulo</option>
                         {% for m in modulos %}
                             <option value="{{ m }}">{{ m }}</option>
                         {% endfor %}

@@ -186,3 +186,24 @@ nav li a:hover {
 .navbar-custom .navbar-brand {
     color: #4ec9b0 !important; /* verde azulado VS Code */
 }
+
+.input-medicamento {
+    width: 100% !important;
+    max-width: 500px !important; /* o el valor que prefieras */
+}
+.input-cantidad {
+    width: 50% !important;
+    max-width: 150px !important; /* o el valor que prefieras */
+}
+.input-responsable {
+    width: 100% !important;
+    max-width: 300px !important; /* o el valor que prefieras */
+}
+.input-paciente {
+    width: 100% !important;
+    max-width: 300px !important; /* o el valor que prefieras */
+}
+.input-modulo {
+    width: 100% !important;
+    max-width: 100px !important; /* o el valor que prefieras */
+}

@@ -9,13 +9,14 @@
     <form action="{{ url_for('ingresos.agregar_ingreso') }}" method="post" class="row g-3 bg-dark p-4 rounded shadow">
         <fieldset>
             <legend class="text-danger mb-4">Nuevo Ingreso</legend>
+            <div class="row g-3 mb-2">
 
             <div class="col-md-6 mb-3">
-                <input type="text" name="medicamento" class="form-control bg-secondary text-light border-0" placeholder="Medicamento" required>
+                <input type="text" name="medicamento" class="form-control input-medicamento bg-secondary text-light border-0" placeholder="Medicamento" required>
             </div>
 
             <div class="col-md-6 mb-3">
-                <input type="number" name="cantidad" class="form-control bg-secondary text-light border-0" placeholder="Cantidad" required>
+                <input type="number" name="cantidad" class="form-control input-cantidad bg-secondary text-light border-0" placeholder="Cantidad" required>
             </div>
 
             <div class="col-md-6 mb-3">
@@ -25,6 +26,7 @@
                         <option value="{{ t }}">{{ t }}</option>
                     {% endfor %}
                 </select>
+            </div>
             </div>
 
             <p class="info-label text-muted">La fecha y hora actual se registrarán automáticamente</p>
