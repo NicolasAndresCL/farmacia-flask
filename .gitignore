@@ -13,3 +13,5 @@ instance/
 
 # Archivos de entorno
 .env
+
+rutasIA.md

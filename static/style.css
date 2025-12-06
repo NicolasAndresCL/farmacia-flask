@@ -1,82 +1,83 @@
-/* Estilo general inspirado en VS Code Dark Theme */
+/* 🎨 Paleta VS Code Dark Theme */
+:root {
+    --bg-dark: #1e1e1e;
+    --bg-panel: #252526;
+    --bg-hover: #3c3c3c;
+    --bg-alt: #2d2d2d;
+
+    --text-light: #d4d4d4;
+    --text-muted: #9cdcfe;
+
+    --orange: #d16969;
+    --blue: #569cd6;
+    --yellow: #dcdcaa;
+    --cyan: #4ec9b0;
+    --primary: #0e639c;
+    --primary-hover: #1177bb;
+}
+
+/* 🌑 Estilo general */
 body {
-    background-color: #1e1e1e; /* fondo oscuro */
-    color: #d4d4d4;           /* texto claro */
+    background-color: var(--bg-dark);
+    color: var(--text-light);
     font-family: Consolas, "Courier New", monospace;
     margin: 0;
     padding: 20px;
 }
 
-/* Encabezados */
-h1 {
-    color: #569cd6; /* azul VS Code */
-    border-bottom: 2px solid #333;
-    padding-bottom: 10px;
+/* 📝 Encabezados */
+h1, h2 {
+    border-bottom: 1px solid var(--bg-hover);
+    padding-bottom: 8px;
     margin-bottom: 20px;
 }
+h1 { color: var(--blue); border-bottom-width: 2px; }
+h2 { margin-top: 30px; }
 
-h2 {
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
-    margin-top: 30px;
-}
-
-/* Formularios */
+/* 📋 Formularios */
 form {
-    background-color: #252526;
+    background-color: var(--bg-panel);
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
 }
-
 fieldset {
-    border: 1px solid #3c3c3c;
+    border: 1px solid var(--bg-hover);
     border-radius: 6px;
     padding: 15px;
 }
-
 legend {
-    color: #9cdcfe; /* celeste VS Code */
+    color: var(--text-muted);
     font-weight: bold;
 }
 
-/* Inputs y selects */
+/* 🔤 Inputs y selects */
 input[type="text"],
-input[type="number"] {
-    background-color: #1e1e1e;
-    border: 1px solid #3c3c3c;
-    color: #d4d4d4;
+input[type="number"],
+select {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--bg-hover);
+    color: var(--text-light);
     padding: 8px;
     margin: 5px 10px 5px 0;
     border-radius: 4px;
     width: 200px;
+    font-family: inherit;
 }
-
+select { width: 210px; }
+select option {
+    background-color: var(--bg-panel);
+    color: var(--text-light);
+}
 input:focus, select:focus {
     outline: none;
-    border-color: #007acc;
-    box-shadow: 0 0 5px #007acc;
+    border-color: var(--blue);
+    box-shadow: 0 0 5px var(--blue);
 }
 
-select {
-    background-color: #1e1e1e;
-    border: 1px solid #3c3c3c;
-    color: #d4d4d4;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 4px;
-    width: 210px;
-    font-family: Consolas, "Courier New", monospace;
-}
-
-select option {
-    background-color: #252526;
-    color: #d4d4d4;
-}
-
-/* Botones */
-button {
-    background-color: #0e639c;
+/* 🔘 Botones */
+button, .nav-button {
+    background-color: var(--primary);
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -84,71 +85,52 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+button:hover, .nav-button:hover {
+    background-color: var(--primary-hover);
 }
 
-button:hover {
-    background-color: #1177bb;
-}
-
-/* Tablas */
-.data-table {
+/* 📊 Tablas */
+.data-table, .table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #252526;
+    background-color: var(--bg-panel);
     margin-bottom: 20px;
 }
-
-.data-table th, .data-table td {
-    border: 1px solid #3c3c3c;
+.data-table th, .data-table td,
+.table th, .table td {
+    border: 1px solid var(--bg-hover);
     padding: 8px;
     text-align: left;
 }
-
-.data-table tr:nth-child(even) {
-    background-color: #2d2d2d;
+.data-table tr:nth-child(even),
+.table tr:nth-child(even) {
+    background-color: var(--bg-alt);
+}
+.data-table tr:hover,
+.table tr:hover {
+    background-color: var(--bg-hover);
 }
 
-.data-table tr:hover {
-    background-color: #3c3c3c;
-}
+/* 🎨 Diferenciación por sección */
+.ingresos h2, .ingresos th { color: var(--orange); }
+.salidas h2, .salidas th { color: var(--blue); }
+.stock h2, .stock th { color: var(--cyan); }
 
-/* Diferenciación por sección */
-.ingresos h2, .ingresos th {
-    color: #dcdcaa; /* amarillo VS Code */
-}
-
-.salidas h2, .salidas th {
-    color: #569cd6; /* azul VS Code */
-}
-
-.stock h2, .stock th {
-    color: #4ec9b0; /* verde azulado VS Code */
-}
-
-/* Etiquetas informativas */
+/* ℹ️ Etiquetas informativas */
 .info-label {
     font-size: 0.9em;
-    color: #9cdcfe; /* celeste VS Code */
+    color: var(--text-muted);
     margin: 5px 0 10px 0;
 }
+
+/* 🏠 Navegación y botones home */
 .home-buttons {
     display: flex;
     gap: 20px;
     margin-top: 20px;
-}
-
-.nav-button {
-    background-color: #0e639c;
-    color: #fff;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.nav-button:hover {
-    background-color: #1177bb;
 }
 nav ul {
     list-style: none;
@@ -157,16 +139,50 @@ nav ul {
     gap: 20px;
     margin-top: 10px;
 }
-
 nav li a {
-    color: #9cdcfe;
+    color: var(--text-muted);
     text-decoration: none;
     font-weight: bold;
     padding: 6px 12px;
     border-radius: 4px;
     transition: background-color 0.3s;
 }
-
 nav li a:hover {
-    background-color: #3c3c3c;
+    background-color: var(--bg-hover);
+}
+
+/* Encabezados principales por sección */
+.ingresos h2 {
+    color: #dcdcaa !important; /* amarillo VS Code */
+}
+
+.salidas h2 {
+    color: #dcdcaa !important; /* amarillo VS Code */
+}
+
+.stock h2 {
+    color: #4ec9b0 !important; /* verde azulado VS Code */
+}
+
+.ingresos legend {
+    color: #d16969 !important; /* rojo anaranjado VS Code */
+}
+.salidas legend {
+    color: #d16969 !important; /* rojo anaranjado VS Code */
+}
+
+.navbar-custom {
+    background-color: #e2e3e5; /* azul estilo VS Code */
+}
+
+.navbar-custom .nav-link {
+    color: var(--blue) !important; /* celeste VS Code */
+}
+
+.navbar-custom .nav-link:hover {
+    color: #dcdcaa !important; /* amarillo al pasar el mouse */
+}
+
+.navbar-custom .navbar-brand {
+    color: #4ec9b0 !important; /* verde azulado VS Code */
 }

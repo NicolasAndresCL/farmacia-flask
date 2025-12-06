@@ -3,28 +3,42 @@
 
 {% block content %}
 <section class="form-section ingresos">
-    <h2>Ingreso de Medicamentos</h2>
-    <form action="{{ url_for('ingresos.agregar_ingreso') }}" method="post" class="form-grid">
+    <h2 class="text-info mb-4">Ingreso de Medicamentos</h2>
+
+    <!-- Formulario de ingreso -->
+    <form action="{{ url_for('ingresos.agregar_ingreso') }}" method="post" class="row g-3 bg-dark p-4 rounded shadow">
         <fieldset>
-            <legend>Nuevo Ingreso</legend>
-            <input type="text" name="medicamento" placeholder="Medicamento" required>
-            <input type="number" name="cantidad" placeholder="Cantidad" required>
+            <legend class="text-danger mb-4">Nuevo Ingreso</legend>
 
-            <select name="tipo" required>
-                <option value="" disabled selected>Seleccione tipo</option>
-                {% for t in tipos %}
-                    <option value="{{ t }}">{{ t }}</option>
-                {% endfor %}
-            </select>
+            <div class="col-md-6 mb-3">
+                <input type="text" name="medicamento" class="form-control bg-secondary text-light border-0" placeholder="Medicamento" required>
+            </div>
 
-            <p class="info-label">La fecha y hora actual se registrarán automáticamente</p>
-            <button type="submit">Registrar Ingreso</button>
+            <div class="col-md-6 mb-3">
+                <input type="number" name="cantidad" class="form-control bg-secondary text-light border-0" placeholder="Cantidad" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <select name="tipo" class="form-select bg-secondary text-light border-0" required>
+                    <option value="" disabled selected>Seleccione tipo</option>
+                    {% for t in tipos %}
+                        <option value="{{ t }}">{{ t }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <p class="info-label text-muted">La fecha y hora actual se registrarán automáticamente</p>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Registrar Ingreso</button>
+            </div>
         </fieldset>
     </form>
 
-    <h3>Historial de Ingresos</h3>
-    <table class="data-table">
-        <thead>
+    <!-- Historial -->
+    <h3 class="mt-5 text-info">Historial de Ingresos</h3>
+    <table class="table table-dark table-striped table-hover mt-3">
+        <thead class="table-secondary text-dark">
             <tr>
                 <th>Medicamento</th>
                 <th>Cantidad</th>
@@ -42,7 +56,7 @@
             </tr>
             {% else %}
             <tr>
-                <td colspan="4">No hay ingresos registrados</td>
+                <td colspan="4" class="text-center text-muted">No hay ingresos registrados</td>
             </tr>
             {% endfor %}
         </tbody>
