@@ -118,6 +118,7 @@ button:hover, .nav-button:hover {
 .ingresos h2, .ingresos th { color: var(--orange); }
 .salidas h2, .salidas th { color: var(--blue); }
 .stock h2, .stock th { color: var(--cyan); }
+.cooperativas h2, .cooperativas th { color: var(--yellow); } /* 🔥 nuevo */
 
 /* ℹ️ Etiquetas informativas */
 .info-label {
@@ -152,58 +153,56 @@ nav li a:hover {
 }
 
 /* Encabezados principales por sección */
-.ingresos h2 {
-    color: #dcdcaa !important; /* amarillo VS Code */
-}
+.ingresos h2 { color: #dcdcaa !important; }
+.salidas h2 { color: #dcdcaa !important; }
+.stock h2 { color: #4ec9b0 !important; }
+.cooperativas h2 { color: #dcdcaa !important; } /* amarillo VS Code */
 
-.salidas h2 {
-    color: #dcdcaa !important; /* amarillo VS Code */
-}
+/* Legends diferenciados */
+.ingresos legend { color: #d16969 !important; }
+.salidas legend { color: #d16969 !important; }
+.cooperativas legend { color: #569cd6 !important; } /* azul VS Code */
 
-.stock h2 {
-    color: #4ec9b0 !important; /* verde azulado VS Code */
-}
-
-.ingresos legend {
-    color: #d16969 !important; /* rojo anaranjado VS Code */
-}
-.salidas legend {
-    color: #d16969 !important; /* rojo anaranjado VS Code */
-}
-
+/* Navbar */
 .navbar-custom {
-    background-color: #e2e3e5; /* azul estilo VS Code */
+    background-color: #e2e3e5;
 }
-
 .navbar-custom .nav-link {
-    color: var(--blue) !important; /* celeste VS Code */
+    color: var(--blue) !important;
 }
-
 .navbar-custom .nav-link:hover {
-    color: #dcdcaa !important; /* amarillo al pasar el mouse */
+    color: #dcdcaa !important;
 }
-
 .navbar-custom .navbar-brand {
-    color: #4ec9b0 !important; /* verde azulado VS Code */
+    color: #4ec9b0 !important;
 }
 
+/* Inputs personalizados */
 .input-medicamento {
     width: 100% !important;
-    max-width: 500px !important; /* o el valor que prefieras */
+    max-width: 500px !important;
 }
 .input-cantidad {
     width: 50% !important;
-    max-width: 150px !important; /* o el valor que prefieras */
+    max-width: 150px !important;
 }
 .input-responsable {
     width: 100% !important;
-    max-width: 300px !important; /* o el valor que prefieras */
+    max-width: 300px !important;
 }
 .input-paciente {
     width: 100% !important;
-    max-width: 300px !important; /* o el valor que prefieras */
+    max-width: 300px !important;
 }
 .input-modulo {
     width: 100% !important;
-    max-width: 100px !important; /* o el valor que prefieras */
+    max-width: 100px !important;
+}
+.input-doctor {
+    width: 100% !important;
+    max-width: 300px !important; /* 🔥 nuevo para cooperativas */
+}
+.input-tipo {
+    width: 100% !important;
+    max-width: 200px !important; /* 🔥 nuevo para cooperativas */
 }

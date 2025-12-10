@@ -4,18 +4,20 @@ from models import db
 from routes.ingresos import ingresos_bp
 from routes.salidas import salidas_bp
 from routes.stock import stock_bp
+from routes.cooperativas import cooperativas_bp   # 🔥 nuevo blueprint
 from flasgger import Swagger
 
 app = Flask(__name__)
 
+# Configuración Swagger
 swagger_config = {
     "headers": [],
     "specs": [
         {
             "endpoint": 'apispec_1',
             "route": '/apispec_1.json',
-            "rule_filter": lambda rule: True,  # Muestra todas las reglas
-            "model_filter": lambda tag: True,  # Muestra todos los modelos
+            "rule_filter": lambda rule: True,   # Muestra todas las reglas
+            "model_filter": lambda tag: True,   # Muestra todos los modelos
         }
     ],
     "title": "Inventario Penitenciario API",
@@ -29,24 +31,27 @@ swagger_config = {
 
 Swagger(app, config=swagger_config)
 
-# ... tus rutas van aquí
-
-# Ruta absoluta para evitar problemas
+# Configuración base de datos
 db_path = os.path.join(os.path.dirname(__file__), "instance", "farmacia.db")
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_path}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
+# Ruta principal
 @app.route("/")
 def home():
     return render_template("home.html")
 
-
-
+# Registro de blueprints
 app.register_blueprint(ingresos_bp)
 app.register_blueprint(salidas_bp)
 app.register_blueprint(stock_bp)
+app.register_blueprint(cooperativas_bp)   # 🔥 nuevo módulo
+
+with app.app_context():
+    db.create_all()
+
 
 if __name__ == "__main__":
     app.run(debug=True)

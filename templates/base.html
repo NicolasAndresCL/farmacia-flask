@@ -5,7 +5,7 @@
     <title>{% block title %}Sistema de Medicamentos{% endblock %}</title>
     <!-- Bootstrap CSS desde CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tu CSS personalizado -->
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body class="bg-dark text-light">
@@ -14,17 +14,25 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand text-light fw-bold" href="#">Sistema de Gestión de Medicamentos</a>
+                <a class="navbar-brand fw-bold text-light" href="#">Sistema de Gestión de Medicamentos</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMedicamentos" aria-controls="navbarMedicamentos" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarMedicamentos">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Inicio</a></li> -->
-                        <li class="nav-item"><a class="nav-link text-danger fw-bold" href="{{ url_for('ingresos.index_ingresos') }}">INGRESOS |</a></li>
-                        <li class="nav-item"><a class="nav-link text-primary fw-bold" href="{{ url_for('salidas.index_salidas') }}">SALIDAS |</a></li>
-                        <li class="nav-item"><a class="nav-link text-success fw-bold" href="{{ url_for('stock.index_stock') }}">STOCK |</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger fw-bold" href="{{ url_for('ingresos.index_ingresos') }}">INGRESOS |</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary fw-bold" href="{{ url_for('salidas.index_salidas') }}">SALIDAS |</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning fw-bold" href="{{ url_for('cooperativas.index_cooperativas') }}">COOPERATIVAS |</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-success fw-bold" href="{{ url_for('stock.index_stock') }}">STOCK</a>
+                        </li>
                     </ul>
                 </div>
             </div>

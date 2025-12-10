@@ -3,13 +3,14 @@
 
 {% block content %}
 <section class="form-section">
-    <h2>Bienvenido al Sistema de Gestión de Medicamentos</h2>
-    <p class="info-label">Selecciona una sección para comenzar:</p>
+    <h2 class="text-info mb-4">Bienvenido al Sistema de Gestión de Medicamentos</h2>
+    <p class="info-label text-muted">Selecciona una sección para comenzar:</p>
 
-    <div class="home-buttons">
-        <a href="{{ url_for('ingresos.index_ingresos') }}" class="nav-button">Ingresos</a>
-        <a href="{{ url_for('salidas.index_salidas') }}" class="nav-button">Salidas</a>
-        <a href="{{ url_for('stock.index_stock') }}" class="nav-button">Stock</a>
+    <div class="home-buttons d-flex flex-wrap gap-3 mt-3">
+        <a href="{{ url_for('ingresos.index_ingresos') }}" class="btn btn-danger fw-bold">Ingresos</a>
+        <a href="{{ url_for('salidas.index_salidas') }}" class="btn btn-primary fw-bold">Salidas</a>
+        <a href="{{ url_for('stock.index_stock') }}" class="btn btn-success fw-bold">Stock</a>
+        <a href="{{ url_for('cooperativas.index_cooperativas') }}" class="btn btn-warning fw-bold">Cooperativas</a>
     </div>
 </section>
 {% endblock %}

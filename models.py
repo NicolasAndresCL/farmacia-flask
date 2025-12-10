@@ -34,3 +34,12 @@ class Stock(db.Model):
     medicamento = db.Column(db.String(100), unique=True, nullable=False)
     cantidad = db.Column(db.Integer, default=0)
     ultima_actualizacion = db.Column(db.String(20))
+    
+class Cooperativa(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    medicamento = db.Column(db.String(100), nullable=False)
+    cantidad = db.Column(db.Integer, nullable=False)
+    tipo = db.Column(db.String(50), nullable=False)  # fin de semana, dental, semanal, especial
+    responsable = db.Column(db.String(100), nullable=False)
+    doctor = db.Column(db.String(100), nullable=False)
+    fecha = db.Column(db.String(20), nullable=False)
