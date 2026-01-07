@@ -4,7 +4,7 @@ from models import db
 from routes.ingresos import ingresos_bp
 from routes.salidas import salidas_bp
 from routes.stock import stock_bp
-from routes.cooperativas import cooperativas_bp   # 🔥 nuevo blueprint
+from routes.colectivas import colectivas_bp   # 🔥 nuevo blueprint
 from flasgger import Swagger
 
 app = Flask(__name__)
@@ -47,7 +47,7 @@ def home():
 app.register_blueprint(ingresos_bp)
 app.register_blueprint(salidas_bp)
 app.register_blueprint(stock_bp)
-app.register_blueprint(cooperativas_bp)   # 🔥 nuevo módulo
+app.register_blueprint(colectivas_bp)   # 🔥 nuevo módulo
 
 with app.app_context():
     db.create_all()

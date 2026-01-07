@@ -35,7 +35,7 @@ class Stock(db.Model):
     cantidad = db.Column(db.Integer, default=0)
     ultima_actualizacion = db.Column(db.String(20))
     
-class Cooperativa(db.Model):
+class Colectivas(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     medicamento = db.Column(db.String(100), nullable=False)
     cantidad = db.Column(db.Integer, nullable=False)

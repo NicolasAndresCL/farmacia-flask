@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from datetime import datetime
-from models import db, Cooperativa
+from models import db, Colectivas
 from routes.stock import actualizar_stock  # reutilizamos tu función
 
-cooperativas_bp = Blueprint("cooperativas", __name__, url_prefix="/cooperativas")
+colectivas_bp = Blueprint("colectivas", __name__, url_prefix="/colectivas")
 
 RESPONSABLES = {
     "fin de semana": ["Tens Nicolás", "Tens Barbara"],
@@ -14,8 +14,9 @@ RESPONSABLES = {
 
 DOCTORES = ["Dr Franco", "Dr Consuegra", "Dr Segovia", "Dr Galvez", "Dr Aguilera"]
 
-@cooperativas_bp.route("/", methods=["GET", "POST"])
-def index_cooperativas():
+@colectivas_bp.route("/", methods=["GET", "POST"])
+def index_colectivas():
+    
     if request.method == "POST":
         tipo = request.form["tipo"]
         responsable = request.form["responsable"]
@@ -27,7 +28,7 @@ def index_cooperativas():
             nombre = request.form.get(f"medicamento{i}")
             cantidad = request.form.get(f"cantidad{i}")
             if nombre and cantidad:
-                coop = Cooperativa(
+                coop = Colectivas(
                     medicamento=nombre,
                     cantidad=int(cantidad),
                     tipo=tipo,
@@ -39,8 +40,8 @@ def index_cooperativas():
                 actualizar_stock(nombre, int(cantidad), operacion="salida")
 
         db.session.commit()
-        return redirect(url_for("cooperativas.index_cooperativas"))
+        return redirect(url_for("colectivas.index_colectivas"))
 
-    cooperativas = Cooperativa.query.all()
-    return render_template("cooperativas.html", cooperativas=cooperativas,
+    colectivas = Colectivas.query.all()
+    return render_template("colectivas.html", colectivas=colectivas,
                            responsables=RESPONSABLES, doctores=DOCTORES)
